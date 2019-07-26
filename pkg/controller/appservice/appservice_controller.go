@@ -141,32 +141,5 @@ func (r *ReconcileAppService) Reconcile(request reconcile.Request) (reconcile.Re
 			return reconcile.Result{}, err
 		}
 	}
-
-	// if !reflect.DeepEqual(instance.Spec, oldspec) {
-	// 	// 更新关联资源
-	// 	newDeploy := resources.NewDeploy(instance)
-	// 	oldDeploy := &appsv1.Deployment{}
-	// 	if err := r.client.Get(context.TODO(), request.NamespacedName, oldDeploy); err != nil {
-	// 		return reconcile.Result{}, err
-	// 	}
-	// 	oldDeploy.Spec = newDeploy.Spec
-	// 	if err := r.client.Update(context.TODO(), oldDeploy); err != nil {
-	// 		return reconcile.Result{}, err
-	// 	}
-
-	// 	newService := resources.NewService(instance)
-	// 	oldService := &corev1.Service{}
-	// 	if err := r.client.Get(context.TODO(), request.NamespacedName, oldService); err != nil {
-	// 		return reconcile.Result{}, err
-	// 	}
-	// 	oldService.Spec = newService.Spec
-	// 	if err := r.client.Update(context.TODO(), oldService); err != nil {
-	// 		return reconcile.Result{}, err
-	// 	}
-
-	// 	return reconcile.Result{}, nil
-	// }
-
 	return reconcile.Result{}, nil
-
 }
