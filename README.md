@@ -36,6 +36,12 @@ go version go1.12.7 darwin/amd64
 ```
 
 
+
+
+
+## 使用
+
+
 ### 使用operator-sdk创建新项目
 ```sh
 $ cd $GOPATH/src/gitlab.4pd.io/wangyiping
@@ -66,6 +72,9 @@ $ operator-sdk generate k8s
 
 
 
+
+
+
 ## 调试
 首先，在k8s集群里面安装crd对象
 ```sh
@@ -83,6 +92,9 @@ $ kubectl create -f deploy/crds/app_v1_appservice_cr.yaml
 ```
 
 观察Operator的调试窗口出现的信息
+
+
+
 
 
 
