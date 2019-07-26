@@ -1,4 +1,4 @@
-###安装
+## 安装
 
 #### 安装go
 https://golang.org/dl/
@@ -64,7 +64,9 @@ $ operator-sdk generate k8s
 具体的业务逻辑在pkg/controller里面去实现
 
 
-### 调试
+
+
+## 调试
 首先，在k8s集群里面安装crd对象
 ```sh
 $ kubectl create -f deploy/crds/app_v1_appservice_crd.yaml
@@ -83,7 +85,9 @@ $ kubectl create -f deploy/crds/app_v1_appservice_cr.yaml
 观察Operator的调试窗口出现的信息
 
 
-### 部署
+
+
+## 部署
 执行下面的命令构建 Operator 应用打包成 Docker 镜像
 ```sh
 $ operator-sdk build docker02:35000/opdemo:wyp
@@ -107,6 +111,7 @@ $ kubectl create -f deploy/operator.yaml
 ```
 
 此时，集群里面已经有了CRD和对应的Operator了
+
 当我们创建CRD对象时，会有对应的Operator来处理相应的业务逻辑
 
 
