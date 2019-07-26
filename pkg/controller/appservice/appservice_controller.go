@@ -3,13 +3,11 @@ package appservice
 import (
 	"context"
 	"encoding/json"
-	"reflect"
 
 	appv1 "gitlab.4pd.io/wangyiping/opdemo/pkg/apis/app/v1"
 	"gitlab.4pd.io/wangyiping/opdemo/pkg/resources"
 	appsv1 "k8s.io/api/apps/v1"
 
-	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
@@ -144,30 +142,30 @@ func (r *ReconcileAppService) Reconcile(request reconcile.Request) (reconcile.Re
 		}
 	}
 
-	if !reflect.DeepEqual(instance.Spec, oldspec) {
-		// 更新关联资源
-		newDeploy := resources.NewDeploy(instance)
-		oldDeploy := &appsv1.Deployment{}
-		if err := r.client.Get(context.TODO(), request.NamespacedName, oldDeploy); err != nil {
-			return reconcile.Result{}, err
-		}
-		oldDeploy.Spec = newDeploy.Spec
-		if err := r.client.Update(context.TODO(), oldDeploy); err != nil {
-			return reconcile.Result{}, err
-		}
+	// if !reflect.DeepEqual(instance.Spec, oldspec) {
+	// 	// 更新关联资源
+	// 	newDeploy := resources.NewDeploy(instance)
+	// 	oldDeploy := &appsv1.Deployment{}
+	// 	if err := r.client.Get(context.TODO(), request.NamespacedName, oldDeploy); err != nil {
+	// 		return reconcile.Result{}, err
+	// 	}
+	// 	oldDeploy.Spec = newDeploy.Spec
+	// 	if err := r.client.Update(context.TODO(), oldDeploy); err != nil {
+	// 		return reconcile.Result{}, err
+	// 	}
 
-		newService := resources.NewService(instance)
-		oldService := &corev1.Service{}
-		if err := r.client.Get(context.TODO(), request.NamespacedName, oldService); err != nil {
-			return reconcile.Result{}, err
-		}
-		oldService.Spec = newService.Spec
-		if err := r.client.Update(context.TODO(), oldService); err != nil {
-			return reconcile.Result{}, err
-		}
+	// 	newService := resources.NewService(instance)
+	// 	oldService := &corev1.Service{}
+	// 	if err := r.client.Get(context.TODO(), request.NamespacedName, oldService); err != nil {
+	// 		return reconcile.Result{}, err
+	// 	}
+	// 	oldService.Spec = newService.Spec
+	// 	if err := r.client.Update(context.TODO(), oldService); err != nil {
+	// 		return reconcile.Result{}, err
+	// 	}
 
-		return reconcile.Result{}, nil
-	}
+	// 	return reconcile.Result{}, nil
+	// }
 
 	return reconcile.Result{}, nil
 
