@@ -7,25 +7,7 @@ https://golang.org/dl/
 #### 安装operator-sdk
 https://github.com/operator-framework/operator-sdk/blob/master/doc/user/install-operator-sdk.md
 
-### Download the release binary
 
-```sh
-# Set the release version variable
-$ RELEASE_VERSION=v0.9.0
-# Linux
-$ curl -OJL https://github.com/operator-framework/operator-sdk/releases/download/${RELEASE_VERSION}/operator-sdk-${RELEASE_VERSION}-x86_64-linux-gnu
-# macOS
-$ curl -OJL https://github.com/operator-framework/operator-sdk/releases/download/${RELEASE_VERSION}/operator-sdk-${RELEASE_VERSION}-x86_64-apple-darwin
-```
-
-### Install the release binary in your PATH
-
-```
-# Linux
-$ chmod +x operator-sdk-${RELEASE_VERSION}-x86_64-linux-gnu && sudo mkdir -p /usr/local/bin/ && sudo cp operator-sdk-${RELEASE_VERSION}-x86_64-linux-gnu /usr/local/bin/operator-sdk && rm operator-sdk-${RELEASE_VERSION}-x86_64-linux-gnu
-# macOS
-$ chmod +x operator-sdk-${RELEASE_VERSION}-x86_64-apple-darwin && sudo mkdir -p /usr/local/bin/ && sudo cp operator-sdk-${RELEASE_VERSION}-x86_64-apple-darwin /usr/local/bin/operator-sdk && rm operator-sdk-${RELEASE_VERSION}-x86_64-apple-darwin
-```
 
 安装完成后，查看版本信息
 ```sh
@@ -34,10 +16,7 @@ operator-sdk version: v0.7.0
 $ go version
 go version go1.12.7 darwin/amd64
 ```
-
-
-
-
+<br>
 
 ## 使用
 
@@ -69,11 +48,7 @@ $ operator-sdk generate k8s
 
 具体的业务逻辑在pkg/controller里面去实现
 
-
-
-
-
-
+<br>
 
 ## 调试
 首先，在k8s集群里面安装crd对象
@@ -93,11 +68,7 @@ $ kubectl create -f deploy/crds/app_v1_appservice_cr.yaml
 
 观察Operator的调试窗口出现的信息
 
-
-
-
-
-
+<br>
 
 ## 部署
 执行下面的命令构建 Operator 应用打包成 Docker 镜像
