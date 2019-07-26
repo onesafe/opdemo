@@ -1,7 +1,12 @@
 apiVersion: app.4paradigm.com/v1
 kind: AppService
 metadata:
-  name: example-appservice
+  name: nginx-app
 spec:
   # Add fields here
   size: 3
+  image: nginx:1.15
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30002
